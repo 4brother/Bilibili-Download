@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">哔</div>
+    <div class="title-wrap">
+      <h1>B站视频下载助手</h1>
+      <span class="ver">v1.0.0</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 加载中 / 错误提示 -->
+    <div id="statusBox" class="status-box">
+      <div id="statusText" class="status-text">正在识别当前页面…</div>
+    </div>
+
+    <div id="content" hidden>
+      <!-- 视频信息卡片 -->
+      <section class="card">
+        <h2 id="vTitle" class="v-title"></h2>
+        <div class="v-meta">
+          <span id="vSub"></span>
+          <span id="vKind" class="badge"></span>
+        </div>
+        <div class="select-row" id="partRow" hidden>
+          <label for="partSel">选P / 选集</label>
+          <select id="partSel"></select>
+        </div>
+        <div id="loginTip" class="login-tip" hidden>
+          ⚠️ 未检测到B站登录状态，仅能获取 360P/480P 与低码率音频。<br />
+          请先在浏览器登录 bilibili.com 后重新打开本弹窗。
+        </div>
+      </section>
+
+      <!-- 下载选项卡片 -->
+      <section class="card">
+        <div class="seg" id="modeSeg">
+          <button data-v="audio" type="button">🎧 仅音频</button>
+          <button data-v="video" type="button" class="active">🎬 音频+视频</button>
+        </div>
+
+        <!-- 仅音频 -->
+        <div id="audioSection" hidden>
+          <div class="select-row">
+            <label for="audioSel">音质</label>
+            <select id="audioSel"></select>
+          </div>
+          <p class="hint">下载音频流（.m4a），可直接用播放器播放或转 MP3。</p>
+        </div>
+
+        <!-- 音频+视频 -->
+        <div id="videoSection">
+          <div class="seg seg-sm" id="fmtSeg">
+            <button data-v="mp4" type="button" class="active">MP4 一体</button>
+            <button data-v="dash" type="button">DASH 分离</button>
+          </div>
+          <p class="hint" id="fmtHint"></p>
+
+          <div class="select-row">
+            <label for="qualitySel">清晰度</label>
+            <select id="qualitySel"></select>
+          </div>
+          <div class="select-row" id="codecRow" hidden>
+            <label for="codecSel">视频编码</label>
+            <select id="codecSel"></select>
+          </div>
+          <div class="select-row" id="dashAudioRow" hidden>
+            <label for="dashAudioSel">音质</label>
+            <select id="dashAudioSel"></select>
+          </div>
+        </div>
+      </section>
+
+      <button id="downloadBtn" type="button">⬇ 开始下载</button>
+
+      <!-- 下载任务进度 -->
+      <div id="tasks" hidden>
+        <div class="tasks-title">下载任务（后台执行中，可关闭本弹窗，完成后自动保存到下载目录）</div>
+        <ul id="taskList"></ul>
+      </div>
+
+      <!-- ffmpeg 合并提示 -->
+      <div id="ffmpegTip" class="ffmpeg-tip" hidden>
+        <p class="tip-title">📼 DASH 音视频分离下载完成后合并：</p>
+        <ol class="tip-steps">
+          <li>打开浏览器「下载内容」页，找到两个文件所在目录（默认为 下载/Bilibili/）</li>
+          <li>在该目录打开命令行，执行以下命令（无损合并，秒完成）</li>
+        </ol>
+        <code id="ffmpegCmd"></code>
+        <button id="copyCmd" class="copy-btn" type="button">复制命令</button>
+      </div>
+
+      <div id="toast" class="toast" hidden></div>
+    </div>
+  </main>
+
+  <footer class="footer">仅供个人学习使用 · 请尊重创作者版权</footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

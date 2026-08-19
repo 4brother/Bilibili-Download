@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "B站视频下载助手",
+  "version": "1.0.0",
+  "description": "下载哔哩哔哩视频，支持仅音频或音频+视频（MP4 一体 / DASH 高清分离），自动携带登录态获取更高清晰度",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "B站视频下载助手",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "downloads",
+    "storage",
+    "activeTab",
+    "declarativeNetRequest",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "*://*.bilibili.com/*",
+    "*://*.bilivideo.com/*",
+    "*://*.bilivideo.net/*",
+    "*://*.bilivideo.cn/*",
+    "*://*.akamaized.net/*",
+    "*://*.hdslb.com/*",
+    "*://*.acgvideo.com/*"
+  ]
+}

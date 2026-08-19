@@ -1,0 +1,12 @@
+# 打包产物
+dist/
+
+# 调试 / E2E 残留
+.playwright-cli/
+_e2e/
+_e2e_profile/
+node_modules/
+
+# 系统文件
+Thumbs.db
+Desktop.ini
