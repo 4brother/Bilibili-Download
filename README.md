@@ -35,7 +35,7 @@
 1. 打开 Chrome，地址栏输入 `chrome://extensions/` 回车
 2. 打开右上角的 **「开发者模式」** 开关
 3. 点击左上角 **「加载已解压的扩展程序」**
-4. 选择本项目文件夹 `Bilibili_Download`（即包含 `manifest.json` 的目录）
+4. 选择本项目文件夹 `Bilibili-Download`（即包含 `manifest.json` 的目录）
 5. 工具栏出现「B站视频下载助手」图标即安装成功（可点击拼图图标将其固定到工具栏）
 
 ### Edge
@@ -43,7 +43,7 @@
 1. 打开 Edge，地址栏输入 `edge://extensions/` 回车
 2. 打开左侧（或右下角设置中）的 **「开发人员模式」** 开关
 3. 点击 **「加载解压缩的扩展」**
-4. 选择本项目文件夹 `Bilibili_Download`
+4. 选择本项目文件夹 `Bilibili-Download`
 5. 安装成功后，点击工具栏拼图图标，将「B站视频下载助手」固定即可
 
 > 修改代码后，需在扩展管理页点击该扩展卡片上的 **刷新（↻）** 按钮重新加载。
@@ -209,7 +209,7 @@ MP4 一体走 HTML5 接口，上限为 1080P（且部分内容不提供）。追
 ## 📁 项目结构
 
 ```
-Bilibili_Download/
+Bilibili-Download/
 ├── manifest.json                 # 扩展清单（Manifest V3）
 ├── build.ps1                     # 一键打包脚本（产出 dist/unpacked + 商店 zip）
 ├── build.bat                     # 打包双击入口
